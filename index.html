@@ -1,0 +1,1467 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Associació de Veïns del Carrer Sant Pere Més Baix</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --amber-50: #fffbeb;
+      --amber-100: #fef3c7;
+      --amber-200: #fde68a;
+      --amber-300: #fcd34d;
+      --amber-400: #fbbf24;
+      --amber-500: #f59e0b;
+      --amber-600: #d97706;
+      --amber-700: #b45309;
+      --amber-800: #92400e;
+      --amber-900: #78350f;
+      --amber-950: #451a03;
+      --gray-50: #f9fafb;
+      --gray-100: #f3f4f6;
+      --gray-200: #e5e7eb;
+      --gray-300: #d1d5db;
+      --gray-400: #9ca3af;
+      --gray-500: #6b7280;
+      --gray-600: #4b5563;
+      --gray-700: #374151;
+      --gray-800: #1f2937;
+      --gray-900: #111827;
+      --gray-950: #030712;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.5;
+      color: var(--gray-700);
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    header {
+      background-color: white;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 4rem;
+    }
+
+    .logo {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--amber-600);
+    }
+
+    nav ul {
+      display: none;
+      list-style: none;
+    }
+
+    @media (min-width: 768px) {
+      nav ul {
+        display: flex;
+        gap: 1.5rem;
+      }
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--gray-700);
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--amber-600);
+    }
+
+    .mobile-menu-btn {
+      display: block;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .mobile-menu-btn {
+        display: none;
+      }
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 4rem;
+      right: 0;
+      width: 100%;
+      max-width: 300px;
+      background-color: white;
+      box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+      padding: 1rem;
+      z-index: 40;
+    }
+
+    .mobile-menu.active {
+      display: block;
+    }
+
+    .mobile-menu ul {
+      list-style: none;
+    }
+
+    .mobile-menu li {
+      margin-bottom: 1rem;
+    }
+
+    .hero {
+      position: relative;
+      height: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.5);
+      z-index: -1;
+    }
+
+    .hero-content {
+      padding: 0 1rem;
+      max-width: 800px;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    @media (min-width: 768px) {
+      .hero h1 {
+        font-size: 3.5rem;
+      }
+    }
+
+    .hero p {
+      font-size: 1.125rem;
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.375rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .btn-primary {
+      background-color: var(--amber-600);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--amber-700);
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      color: white;
+      border: 1px solid white;
+    }
+
+    .btn-outline:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .section {
+      padding: 4rem 0;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--amber-600);
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+
+    .section-description {
+      font-size: 1.125rem;
+      color: var(--gray-600);
+      margin-bottom: 3rem;
+      text-align: center;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .grid {
+      display: grid;
+      gap: 2rem;
+    }
+
+    @media (min-width: 768px) {
+      .grid-2 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .grid-3 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .grid-4 {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 0.5rem;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    .card-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 1.5rem;
+    }
+
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--amber-700);
+      margin-bottom: 0.5rem;
+    }
+
+    .card-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      color: var(--amber-600);
+      font-size: 0.875rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-description {
+      margin-bottom: 1rem;
+    }
+
+    .bg-amber-50 {
+      background-color: var(--amber-50);
+    }
+
+    .bg-amber-600 {
+      background-color: var(--amber-600);
+    }
+
+    .text-white {
+      color: white;
+    }
+
+    .rounded {
+      border-radius: 0.5rem;
+    }
+
+    .p-8 {
+      padding: 2rem;
+    }
+
+    .mb-4 {
+      margin-bottom: 1rem;
+    }
+
+    .mb-8 {
+      margin-bottom: 2rem;
+    }
+
+    .flex {
+      display: flex;
+    }
+
+    .items-center {
+      align-items: center;
+    }
+
+    .gap-2 {
+      gap: 0.5rem;
+    }
+
+    .footer {
+      background-color: var(--gray-900);
+      color: white;
+      padding: 3rem 0;
+    }
+
+    .footer-grid {
+      display: grid;
+      gap: 2rem;
+    }
+
+    @media (min-width: 768px) {
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .footer-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .footer-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--amber-400);
+      margin-bottom: 1rem;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-links a {
+      color: var(--gray-300);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--amber-400);
+    }
+
+    .footer-bottom {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--gray-800);
+      text-align: center;
+      font-size: 0.875rem;
+      color: var(--gray-400);
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .footer-bottom-links a {
+      color: var(--gray-400);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-bottom-links a:hover {
+      color: var(--amber-400);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .social-links a {
+      color: var(--gray-300);
+      transition: color 0.2s;
+    }
+
+    .social-links a:hover {
+      color: var(--amber-400);
+    }
+
+    .contact-info {
+      list-style: none;
+    }
+
+    .contact-info li {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .contact-info-icon {
+      color: var(--amber-400);
+      flex-shrink: 0;
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    .form-label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid var(--gray-300);
+      border-radius: 0.375rem;
+      background-color: white;
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: var(--amber-600);
+      box-shadow: 0 0 0 2px rgba(217, 119, 6, 0.2);
+    }
+
+    .form-textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid var(--gray-300);
+      border-radius: 0.375rem;
+      background-color: white;
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .form-textarea:focus {
+      outline: none;
+      border-color: var(--amber-600);
+      box-shadow: 0 0 0 2px rgba(217, 119, 6, 0.2);
+    }
+
+    .form-checkbox {
+      margin-right: 0.5rem;
+    }
+
+    .icon {
+      width: 1.25rem;
+      height: 1.25rem;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .icon-sm {
+      width: 1rem;
+      height: 1rem;
+    }
+
+    .icon-lg {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+
+    .team-member {
+      text-align: center;
+    }
+
+    .team-member-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 1rem;
+    }
+
+    .team-member-name {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--amber-700);
+      margin-bottom: 0.25rem;
+    }
+
+    .team-member-role {
+      color: var(--gray-600);
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 2px;
+      background-color: var(--amber-200);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2rem;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -2rem;
+      top: 0.5rem;
+      width: 1rem;
+      height: 1rem;
+      border-radius: 50%;
+      background-color: var(--amber-600);
+    }
+
+    .timeline-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--amber-700);
+      margin-bottom: 0.5rem;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 0.5rem;
+      cursor: pointer;
+    }
+
+    .gallery-img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+
+    .gallery-item:hover .gallery-img {
+      transform: scale(1.05);
+    }
+
+    .gallery-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 1rem;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+      color: white;
+      font-weight: 600;
+    }
+
+    .tab-list {
+      display: flex;
+      border-bottom: 1px solid var(--gray-200);
+      margin-bottom: 2rem;
+    }
+
+    .tab {
+      padding: 0.75rem 1.5rem;
+      border: none;
+      background: none;
+      cursor: pointer;
+      font-weight: 500;
+      color: var(--gray-600);
+      border-bottom: 2px solid transparent;
+    }
+
+    .tab.active {
+      color: var(--amber-600);
+      border-bottom-color: var(--amber-600);
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .event-date {
+      font-weight: 500;
+      color: var(--amber-600);
+      margin-bottom: 0.5rem;
+    }
+
+    .event-location {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      margin-bottom: 0.5rem;
+      color: var(--gray-600);
+    }
+
+    .event-time {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      margin-bottom: 0.5rem;
+      color: var(--gray-600);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      background-color: var(--amber-100);
+      color: var(--amber-800);
+    }
+
+    .feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .feature-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.25rem;
+      height: 1.25rem;
+      border-radius: 9999px;
+      background-color: var(--amber-600);
+      color: white;
+      flex-shrink: 0;
+      margin-top: 0.25rem;
+    }
+
+    .feature-icon svg {
+      width: 0.75rem;
+      height: 0.75rem;
+    }
+
+    .map {
+      width: 100%;
+      height: 400px;
+      border: none;
+      border-radius: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container header-content">
+      <a href="#" class="logo">AV Sant Pere Més Baix</a>
+      <nav>
+        <ul>
+          <li><a href="#associacio">L'Associació</a></li>
+          <li><a href="#noticies">Notícies</a></li>
+          <li><a href="#esdeveniments">Esdeveniments</a></li>
+          <li><a href="#galeria">Galeria</a></li>
+          <li><a href="#historia">Història</a></li>
+          <li><a href="#contacte">Contacte</a></li>
+        </ul>
+      </nav>
+      <button class="mobile-menu-btn" aria-label="Menú">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <div class="mobile-menu">
+      <ul>
+        <li><a href="#associacio">L'Associació</a></li>
+        <li><a href="#noticies">Notícies</a></li>
+        <li><a href="#esdeveniments">Esdeveniments</a></li>
+        <li><a href="#galeria">Galeria</a></li>
+        <li><a href="#historia">Història</a></li>
+        <li><a href="#contacte">Contacte</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="hero">
+    <img src="https://placehold.co/1920x1080" alt="Carrer Sant Pere Més Baix" class="hero-bg">
+    <div class="hero-content">
+      <h1>Associació de Veïns del Carrer Sant Pere Més Baix</h1>
+      <p>Units per millorar el nostre barri i preservar la seva identitat i patrimoni cultural</p>
+      <div>
+        <a href="#associacio" class="btn btn-primary">Qui Som</a>
+        <a href="#contacte" class="btn btn-outline">Contacta'ns</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid grid-2">
+        <div>
+          <h2 class="section-title">El nostre barri, la nostra història</h2>
+          <p class="mb-4">El carrer Sant Pere Més Baix és un dels carrers més emblemàtics del barri de Sant Pere, Santa Caterina i la Ribera, al districte de Ciutat Vella de Barcelona.</p>
+          <p class="mb-4">La nostra associació treballa per preservar el caràcter històric del carrer, millorar la qualitat de vida dels veïns i fomentar la convivència entre tots els residents.</p>
+          <a href="#historia" class="btn btn-primary">Descobreix la nostra història</a>
+        </div>
+        <div>
+          <img src="https://placehold.co/600x400" alt="Imatge històrica del carrer" class="rounded" style="width: 100%; height: auto;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-amber-50" id="esdeveniments">
+    <div class="container">
+      <h2 class="section-title">Propers Esdeveniments</h2>
+      <p class="section-description">Uneix-te a les nostres activitats i participa en la vida del barri</p>
+
+      <div class="grid grid-3">
+        <div class="card">
+          <div class="card-content">
+            <h3 class="card-title">Assemblea General</h3>
+            <div class="card-meta">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-sm">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              <span>15 de Maig, 2023</span>
+            </div>
+            <div class="event-location">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-sm">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span>Centre Cívic Sant Agustí</span>
+            </div>
+            <p class="card-description">Assemblea anual de l'associació per discutir els projectes i reptes del proper any.</p>
+            <a href="#" class="btn btn-outline">Més informació</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-content">
+            <h3 class="card-title">Festa Major del Carrer</h3>
+            <div class="card-meta">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-sm">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              <span>24-26 de Juny, 2023</span>
+            </div>
+            <div class="event-location">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-sm">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span>Carrer Sant Pere Més Baix</span>
+            </div>
+            <p class="card-description">Celebració de la festa major amb activitats per a totes les edats, música en directe i gastronomia local.</p>
+            <a href="#" class="btn btn-outline">Més informació</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-content">
+            <h3 class="card-title">Taller de Memòria Històrica</h3>
+            <div class="card-meta">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-sm">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              <span>10 de Juliol, 2023</span>
+            </div>
+            <div class="event-location">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-sm">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span>Biblioteca Francesca Bonnemaison</span>
+            </div>
+            <p class="card-description">Recollida de testimonis i fotografies antigues per documentar la història del carrer.</p>
+            <a href="#" class="btn btn-outline">Més informació</a>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 2rem;">
+        <a href="#" class="btn btn-primary">Veure tots els esdeveniments</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="associacio">
+    <div class="container">
+      <div class="bg-amber-600 rounded p-8 text-white">
+        <div class="grid grid-2">
+          <div>
+            <h2 class="mb-4" style="font-size: 2rem; font-weight: 700;">Forma part de l'Associació</h2>
+            <p class="mb-4">Uneix-te a nosaltres i participa activament en les decisions que afecten el nostre carrer i barri. Junts podem aconseguir un entorn millor per a tothom.</p>
+            <ul class="mb-8">
+              <li class="flex items-center gap-2 mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+                <span>Participa en les assemblees i decisions</span>
+              </li>
+              <li class="flex items-center gap-2 mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                <span>Accés prioritari a activitats i tallers</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <span>Contribueix a millorar el nostre entorn</span>
+              </li>
+            </ul>
+          </div>
+          <div style="display: flex; align-items: center; justify-content: center;">
+            <a href="#uneix-te" class="btn btn-outline">Fes-te soci/a</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="noticies">
+    <div class="container">
+      <h2 class="section-title">Notícies Recents</h2>
+      <p class="section-description">Mantén-te informat sobre tot el que passa al nostre carrer</p>
+
+      <div class="grid grid-3">
+        <div class="card">
+          <img src="https://placehold.co/600x400" alt="Notícia" class="card-img">
+          <div class="card-content">
+            <h3 class="card-title">Èxit en la campanya de recollida de signatures</h3>
+            <div class="card-meta">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-sm">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              <span>2 d'Abril, 2023</span>
+            </div>
+            <p class="card-description">La campanya per demanar la pacificació del trànsit al carrer ha aconseguit més de 500 signatures.</p>
+            <a href="#" class="btn btn-outline">Llegir més</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="https://placehold.co/600x400" alt="Notícia" class="card-img">
+          <div class="card-content">
+            <h3 class="card-title">Nou projecte de rehabilitació de façanes</h3>
+            <div class="card-meta">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-sm">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              <span>15 de Març, 2023</span>
+            </div>
+            <p class="card-description">L'Ajuntament ha aprovat un pla de subvencions per a la rehabilitació de façanes històriques del carrer.</p>
+            <a href="#" class="btn btn-outline">Llegir més</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="https://placehold.co/600x400" alt="Notícia" class="card-img">
+          <div class="card-content">
+            <h3 class="card-title">Exposició fotogràfica 'El carrer d'ahir i avui'</h3>
+            <div class="card-meta">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-sm">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              <span>28 de Febrer, 2023</span>
+            </div>
+            <p class="card-description">Gran acollida de l'exposició que mostra l'evolució del carrer Sant Pere Més Baix al llarg del temps.</p>
+            <a href="#" class="btn btn-outline">Llegir més</a>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 2rem;">
+        <a href="#" class="btn btn-primary">Llegir més notícies</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-amber-50" id="historia">
+    <div class="container">
+      <h2 class="section-title">Història del Carrer</h2>
+      <p class="section-description">Descobreix l'evolució històrica d'un dels carrers més emblemàtics del barri</p>
+
+      <div class="grid grid-2">
+        <div>
+          <img src="https://placehold.co/600x400" alt="Imatge històrica" class="rounded" style="width: 100%; height: auto;">
+        </div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <h3 class="timeline-title">Orígens Medievals</h3>
+            <p>El carrer Sant Pere Més Baix té els seus orígens en l'època medieval, quan formava part del barri dels artesans tèxtils de Barcelona. El seu nom prové de l'antic monestir de Sant Pere de les Puel·les, fundat al segle X.</p>
+          </div>
+          <div class="timeline-item">
+            <h3 class="timeline-title">Època Industrial</h3>
+            <p>A partir del segle XVIII i especialment durant el XIX, el barri va experimentar una important transformació amb l'arribada de la industrialització. Molts dels antics tallers artesanals van donar pas a petites fàbriques tèxtils.</p>
+          </div>
+          <div class="timeline-item">
+            <h3 class="timeline-title">Segle XX i Transformacions</h3>
+            <p>Durant bona part del segle XX, el carrer Sant Pere Més Baix i el seu entorn van patir un cert procés de degradació. A partir dels anys 80, amb les primeres intervencions de rehabilitació urbana i l'impuls de les associacions veïnals, el barri va començar a recuperar-se.</p>
+          </div>
+          <div class="timeline-item">
+            <h3 class="timeline-title">Actualitat</h3>
+            <p>Avui dia, el carrer Sant Pere Més Baix és un espai que combina la seva rica història amb una nova vitalitat. Els antics edificis conviuen amb botigues modernes, tallers d'artistes, restaurants i altres negocis que han revitalitzat l'economia local.</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 2rem;">
+        <a href="#" class="btn btn-primary">Descobreix més sobre la nostra història</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="galeria">
+    <div class="container">
+      <h2 class="section-title">Galeria d'Imatges</h2>
+      <p class="section-description">Explora la història i l'actualitat del carrer Sant Pere Més Baix a través d'imatges</p>
+
+      <div class="tab-list">
+        <button class="tab active" data-tab="historic">Històriques</button>
+        <button class="tab" data-tab="events">Esdeveniments</button>
+        <button class="tab" data-tab="neighborhood">El Barri</button>
+      </div>
+
+      <div class="tab-content active" id="historic">
+        <div class="gallery">
+          <div class="gallery-item">
+            <img src="https://placehold.co/600x450" alt="El carrer als anys 50" class="gallery-img">
+            <div class="gallery-caption">El carrer als anys 50</div>
+          </div>
+          <div class="gallery-item">
+            <img src="https://placehold.co/600x450" alt="Festa Major 1965" class="gallery-img">
+            <div class="gallery-caption">Festa Major 1965</div>
+          </div>
+          <div class="gallery-item">
+            <img src="https://placehold.co/600x450" alt="Processó de Corpus 1970" class="gallery-img">
+            <div class="gallery-caption">Processó de Corpus 1970</div>
+          </div>
+          <div class="gallery-item">
+            <img src="https://placehold.co/600x450" alt="Comerços tradicionals 1980" class="gallery-img">
+            <div class="gallery-caption">Comerços tradicionals 1980</div>
+          </div>
+          <div class="gallery-item">
+            <img src="https://placehold.co/600x450" alt="Manifestació veïnal 1985" class="gallery-img">
+            <div class="gallery-caption">Manifestació veïnal 1985</div>
+          </div>
+          <div class="gallery-item">
+            <img src="https://placehold.co/600x450" alt="Rehabilitació façanes 1992" class="gallery-img">
+            <div class="gallery-caption">Rehabilitació façanes 1992</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-content" id="events">
+        <div class="gallery">
+          <div class="gallery-item">
+            <img src="https://placehold.co/600x450" alt="Festa Major 2022" class="gallery-img">
+            <div class="gallery-caption">Festa Major 2022</div>
+          </div>
+          <div class="gallery-item">
+            <img src="https://placehold.co/600x450" alt="Calçotada popular 2023" class="gallery-img">
+            <div class="gallery-caption">Calçotada popular 2023</div>
+          </div>
+          <div class="gallery-item">
+            <img src="https://placehold.co/600x450" alt="Sant Jordi al carrer 2023" class="gallery-img">
+            <div class="gallery-caption">Sant Jordi al carrer 2023</div>
+          </div>
+          <div class="gallery-item">
+            <img src="https://placehold.co/600x450" alt="Assemblea anual 2023" class="gallery-img">
+            <div class="gallery-caption">Assemblea anual 2023</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-content" id="neighborhood">
+        <div class="gallery">
+          <div class="gallery-item">
+            <img src="https://placehold.co/600x450" alt="Façana històrica" class="gallery-img">
+            <div class="gallery-caption">Façana històrica</div>
+          </div>
+          <div class="gallery-item">
+            <img src="https://placehold.co/600x450" alt="Detall arquitectònic" class="gallery-img">
+            <div class="gallery-caption">Detall arquitectònic</div>
+          </div>
+          <div class="gallery-item">
+            <img src="https://placehold.co/600x450" alt="Plaça Sant Pere" class="gallery-img">
+            <div class="gallery-caption">Plaça Sant Pere</div>
+          </div>
+          <div class="gallery-item">
+            <img src="https://placehold.co/600x450" alt="Carrer des de dalt" class="gallery-img">
+            <div class="gallery-caption">Carrer des de dalt</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-amber-50 rounded p-8 text-center" style="margin-top: 3rem;">
+        <h3 style="font-size: 1.5rem; font-weight: 600; color: var(--amber-600); margin-bottom: 1rem;">Comparteix les teves fotografies</h3>
+        <p style="margin-bottom: 1.5rem;">Tens fotografies antigues o actuals del carrer Sant Pere Més Baix? Comparteix-les amb nosaltres i ajuda'ns a preservar la memòria històrica del barri.</p>
+        <a href="mailto:galeria@avsantpere.cat" class="btn btn-primary">Enviar fotografies</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contacte">
+    <div class="container">
+      <h2 class="section-title">Contacta amb Nosaltres</h2>
+      <p class="section-description">Tens alguna pregunta o suggeriment? Posa't en contacte amb nosaltres i et respondrem el més aviat possible.</p>
+
+      <div class="grid grid-3">
+        <div class="card">
+          <div class="card-content">
+            <h3 class="card-title">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle; margin-right: 0.5rem; color: var(--amber-600);">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              Adreça
+            </h3>
+            <p>Carrer Sant Pere Més Baix, 55</p>
+            <p>08003 Barcelona</p>
+            <p style="margin-top: 0.5rem;">Horari d'atenció: Dimarts i dijous de 17h a 20h</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-content">
+            <h3 class="card-title">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle; margin-right: 0.5rem; color: var(--amber-600);">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+              Telèfon
+            </h3>
+            <p>93 123 45 67</p>
+            <p style="margin-top: 0.5rem;">Horari d'atenció telefònica: De dilluns a divendres de 10h a 14h i de 16h a 19h</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-content">
+            <h3 class="card-title">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle; margin-right: 0.5rem; color: var(--amber-600);">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              Correu Electrònic
+            </h3>
+            <p>info@avsantpere.cat</p>
+            <p style="margin-top: 0.5rem;">T'intentarem respondre en un termini màxim de 48 hores.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-2" style="margin-top: 3rem; gap: 2rem;">
+        <div>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2993.4259082375236!2d2.1756!3d41.3866!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4a2f6b3d8c9d7%3A0x3a9e57c53a1c1a0a!2sCarrer%20de%20Sant%20Pere%20M%C3%A9s%20Baix%2C%20Barcelona!5e0!3m2!1sca!2ses!4v1650000000000!5m2!1sca!2ses" class="map" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="card">
+          <div class="card-content">
+            <h3 class="card-title" style="margin-bottom: 1rem;">Formulari de Contacte</h3>
+            <p style="margin-bottom: 1.5rem;">Omple el formulari i ens posarem en contacte amb tu el més aviat possible.</p>
+            <form>
+              <div class="grid grid-2" style="gap: 1rem; margin-bottom: 1rem;">
+                <div class="form-group">
+                  <label for="name" class="form-label">Nom</label>
+                  <input type="text" id="name" class="form-input" placeholder="El teu nom" required>
+                </div>
+                <div class="form-group">
+                  <label for="email" class="form-label">Correu Electrònic</label>
+                  <input type="email" id="email" class="form-input" placeholder="El teu correu" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="subject" class="form-label">Assumpte</label>
+                <input type="text" id="subject" class="form-input" placeholder="Assumpte del missatge" required>
+              </div>
+              <div class="form-group">
+                <label for="message" class="form-label">Missatge</label>
+                <textarea id="message" class="form-textarea" placeholder="Escriu el teu missatge aquí..." rows="5" required></textarea>
+              </div>
+              <div class="form-group">
+                <label class="form-checkbox-label">
+                  <input type="checkbox" class="form-checkbox" required>
+                  He llegit i accepto la <a href="#" style="color: var(--amber-600);">política de privacitat</a>
+                </label>
+              </div>
+              <button type="submit" class="btn btn-primary" style="width: 100%;">Enviar Missatge</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-amber-50" id="uneix-te">
+    <div class="container">
+      <h2 class="section-title">Fes-te Soci/a</h2>
+      <p class="section-description">Uneix-te a l'Associació de Veïns del Carrer Sant Pere Més Baix i participa activament en la millora del nostre entorn.</p>
+
+      <div class="grid grid-2">
+        <div>
+          <h3 style="font-size: 1.5rem; font-weight: 600; color: var(--amber-600); margin-bottom: 1rem;">Per què fer-se soci/a?</h3>
+          
+          <div style="margin-bottom: 2rem;">
+            <div class="feature">
+              <div class="feature-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
+              <p>Participaràs en les decisions que afecten el teu carrer i barri</p>
+            </div>
+            <div class="feature">
+              <div class="feature-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
+              <p>Rebràs informació periòdica sobre les activitats i projectes</p>
+            </div>
+            <div class="feature">
+              <div class="feature-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
+              <p>Podràs formar part de les diferents comissions de treball</p>
+            </div>
+            <div class="feature">
+              <div class="feature-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
+              <p>Gaudiràs de descomptes en algunes activitats</p>
+            </div>
+            <div class="feature">
+              <div class="feature-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
+              <p>Contribuiràs a la millora del carrer i del barri</p>
+            </div>
+          </div>
+
+          <h3 style="font-size: 1.25rem; font-weight: 600; color: var(--amber-600); margin-bottom: 1rem;">Quotes anuals</h3>
+          <div class="grid grid-2" style="gap: 1rem; margin-bottom: 2rem;">
+            <div class="card">
+              <div class="card-content" style="text-align: center;">
+                <h4 style="font-size: 1.25rem; font-weight: 600; color: var(--amber-600); margin-bottom: 0.5rem;">Individual</h4>
+                <p style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem;">20€</p>
+                <p>Per a una persona</p>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-content" style="text-align: center;">
+                <h4 style="font-size: 1.25rem; font-weight: 600; color: var(--amber-600); margin-bottom: 0.5rem;">Familiar</h4>
+                <p style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem;">30€</p>
+                <p>Per a tota la unitat familiar</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-content">
+            <h3 class="card-title" style="margin-bottom: 1rem;">Formulari d'inscripció</h3>
+            <p style="margin-bottom: 1.5rem;">Omple el formulari amb les teves dades i ens posarem en contacte amb tu per confirmar la teva inscripció.</p>
+            <form>
+              <div class="form-group">
+                <label class="form-label">Tipus de soci/a</label>
+                <div style="display: flex; gap: 1rem;">
+                  <label style="display: flex; align-items: center; gap: 0.5rem;">
+                    <input type="radio" name="membership-type" value="individual" checked>
+                    Individual (20€/any)
+                  </label>
+                  <label style="display: flex; align-items: center; gap: 0.5rem;">
+                    <input type="radio" name="membership-type" value="family">
+                    Familiar (30€/any)
+                  </label>
+                </div>
+              </div>
+
+              <div class="grid grid-2" style="gap: 1rem; margin-bottom: 1rem;">
+                <div class="form-group">
+                  <label for="join-name" class="form-label">Nom</label>
+                  <input type="text" id="join-name" class="form-input" placeholder="El teu nom" required>
+                </div>
+                <div class="form-group">
+                  <label for="join-surname" class="form-label">Cognoms</label>
+                  <input type="text" id="join-surname" class="form-input" placeholder="Els teus cognoms" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="join-address" class="form-label">Adreça</label>
+                <input type="text" id="join-address" class="form-input" placeholder="La teva adreça" required>
+              </div>
+
+              <div class="grid" style="grid-template-columns: 1fr 2fr; gap: 1rem; margin-bottom: 1rem;">
+                <div class="form-group">
+                  <label for="join-postal-code" class="form-label">Codi Postal</label>
+                  <input type="text" id="join-postal-code" class="form-input" placeholder="08003" required>
+                </div>
+                <div class="form-group">
+                  <label for="join-city" class="form-label">Població</label>
+                  <input type="text" id="join-city" class="form-input" placeholder="Barcelona" required>
+                </div>
+              </div>
+
+              <div class="grid grid-2" style="gap: 1rem; margin-bottom: 1rem;">
+                <div class="form-group">
+                  <label for="join-email" class="form-label">Correu Electrònic</label>
+                  <input type="email" id="join-email" class="form-input" placeholder="El teu correu" required>
+                </div>
+                <div class="form-group">
+                  <label for="join-phone" class="form-label">Telèfon</label>
+                  <input type="tel" id="join-phone" class="form-input" placeholder="El teu telèfon" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="join-interests" class="form-label">Interessos i àrees en les quals t'agradaria col·laborar</label>
+                <textarea id="join-interests" class="form-textarea" placeholder="Cultura, urbanisme, festes, medi ambient, etc." rows="3"></textarea>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Forma de pagament</label>
+                <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                  <label style="display: flex; align-items: center; gap: 0.5rem;">
+                    <input type="radio" name="payment" value="bank" checked>
+                    Domiciliació bancària
+                  </label>
+                  <label style="display: flex; align-items: center; gap: 0.5rem;">
+                    <input type="radio" name="payment" value="transfer">
+                    Transferència bancària
+                  </label>
+                  <label style="display: flex; align-items: center; gap: 0.5rem;">
+                    <input type="radio" name="payment" value="cash">
+                    Efectiu a la seu de l'associació
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-checkbox-label">
+                  <input type="checkbox" class="form-checkbox" required>
+                  He llegit i accepto la <a href="#" style="color: var(--amber-600);">política de privacitat</a>
+                </label>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width: 100%;">Enviar sol·licitud</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3 class="footer-title">Sobre Nosaltres</h3>
+          <p style="margin-bottom: 1rem;">L'Associació de Veïns del Carrer Sant Pere Més Baix treballa per millorar la qualitat de vida dels residents i preservar el patrimoni històric del nostre carrer.</p>
+          <div class="social-links">
+            <a href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+              </svg>
+            </a>
+            <a href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+              </svg>
+            </a>
+            <a href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="footer-title">Contacte</h3>
+          <ul class="contact-info">
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="contact-info-icon">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span>
+                Carrer Sant Pere Més Baix, 55<br>
+                08003 Barcelona
+              </span>
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="contact-info-icon">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+              <span>93 123 45 67</span>
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="contact-info-icon">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              <span>info@avsantpere.cat</span>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-title">Enllaços Ràpids</h3>
+          <ul class="footer-links">
+            <li><a href="#associacio">Qui Som</a></li>
+            <li><a href="#noticies">Notícies</a></li>
+            <li><a href="#esdeveniments">Esdeveniments</a></li>
+            <li><a href="#galeria">Galeria</a></li>
+            <li><a href="#historia">Història</a></li>
+            <li><a href="#contacte">Contacte</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-title">Butlletí</h3>
+          <p style="margin-bottom: 1rem;">Subscriu-te al nostre butlletí per rebre les últimes notícies i actualitzacions.</p>
+          <form>
+            <div class="form-group">
+              <input type="email" class="form-input" placeholder="El teu correu electrònic" required>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%;">Subscriu-te</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2023 Associació de Veïns del Carrer Sant Pere Més Baix. Tots els drets reservats.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Política de Privacitat</a>
+          <a href="#">Política de Cookies</a>
+          <a href="#">Avís Legal</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const mobileMenu = document.querySelector('.mobile-menu');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking on a link
+    const mobileMenuLinks = document.querySelectorAll('.mobile-menu a');
+    mobileMenuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+      });
+    });
+
+    // Gallery tabs
+    const tabs = document.querySelectorAll('.tab');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const tabId = tab.getAttribute('data-tab');
+        
+        // Remove active class from all tabs and contents
+        tabs.forEach(t => t.classList.remove('active'));
+        tabContents.forEach(c => c.classList.remove('active'));
+        
+        // Add active class to clicked tab and corresponding content
+        tab.classList.add('active');
+        document.getElementById(tabId).classList.add('active');
+      });
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
